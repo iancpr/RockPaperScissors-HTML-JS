@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Rock Paper Scissors Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="ex16css.css" rel="stylesheet" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="container"><h1>Play Rock Paper Scissors</h1></div>
+        <div class="container"><h3>Click on an image of Rock, Paper or Scissors below:</h3></div>
+                
+        <!-- ROCK -->
+        <div class="container">
+    <a onclick="play('R')" >
+        <img src="rock.gif" width="250" height="250" alt="rock" id="R" />
+    </a>
+        
+        <!-- PAPER -->
+    <a onclick="play('P')" >
+        <img src="paper.gif" width="250" height="250" alt="paper" id="P" />
+    </a>
+        
+        <!-- SCISSORS -->
+    <a onclick="play('S')" >
+        <img src="scissors.gif" width="250" height="250" alt="Scissors" id="S" />
+    </a>
+        </div>
+<br/>  
+<br/> 
+<br/> 
+<div class="container" id="youChose"><p><strong>You chose: </strong><span id="userChoice"></span></p></div>        
+<div class="container"><p><strong>Computer Chose: </strong><span id="computerChoice"></span></p></div> 
+<div class="container"><p><strong>Game Result: </strong><span id="gameResult"></span></p></div>  
+<div class="container"><p><strong>Wins: </strong><span id="win"></span></p></div>  
+<div class="container"><p><strong>Loses: </strong><span id="lose"></span></p></div>  
+<div class="container"><p><strong>Draws: </strong><span id="draw"></span></p></div>  
+
+
+<div class="container">  
+<a href="RPS.html"><img src="Continue.PNG" alt=""/></a>
+</div>
+
+
+
+<script type="text/javascript">
+function play(strChoice) {
+  var xhttp;
+  xhttp = new XMLHttpRequest(); //instantiation
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("gameResult").innerHTML = this.responseText;
+    }
+    
+  };
+  xhttp.open("GET", "GameFunctions2.php?choice="+strChoice, true);
+  xhttp.send();   
+   
+}
+
+
+
+
+
+
+
+</script>
+
+    </body>
+</html>
